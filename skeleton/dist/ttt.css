@@ -1,9 +1,29 @@
 ul {
     display: flex;
     flex-wrap: wrap;
-    width: 300px;
+    width: 400px;
 }
 
 li {
-    width: 33%;
+    width: 30%;
+    border: solid 5px black;
+    list-style: none;
+    min-width: 100px;
+    min-height: 110px;
+    background-color: grey;
+    cursor: pointer;
+    font-size: 80px;
+    text-align: center;
+}
+
+li:hover{
+background-color: yellow;
+}
+
+.x{
+    background-color: antiquewhite;
+}
+
+.o{
+    background-color: antiquewhite;
 }

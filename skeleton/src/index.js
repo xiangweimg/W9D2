@@ -10,4 +10,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let view = new View(game, figure[0]);
 
+//   const ul = document.querySelector("ul")
+//   ul.addEventListener("click",e => {
+//   a.handleClick(e)
+// });
+const ul = document.querySelector("ul")
+ul.addEventListener("click", e=>{
+   view.handleClick(e);
+})
 });

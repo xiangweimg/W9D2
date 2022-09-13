@@ -3,8 +3,9 @@ class View {
      // this.el = el, do the same for game
     this.game = game;
     this.figure = figure;
-    
+    this.handleClick= this.handleClick.bind(this)
     this.setupBoard();
+    this.bindEvents()
   }
 
   setupBoard() {
@@ -14,7 +15,7 @@ class View {
         const cell = document.createElement('li');
         // <li pos="[]"> </li>
         // .dataset
-        cell.dataset.pos = [i,j]
+        cell.dataset.pos = JSON.stringify([i,j]);
         // append the li to the ul
         // .append
         box.append(cell)
@@ -25,11 +26,23 @@ class View {
     this.figure.append(box)
   }
   
-  bindEvents() {}
+  bindEvents() {
+    // const cell = document.querySelector(".li")
+    this.figure.addEventListener("click", this.handleClick)
+  }
 
-  handleClick(e) {}
+  handleClick(e) {
+    this.makeMove(JSON.parse(e.target.getAttribute("data-pos")))
+    e.target.textContent = this.game.currentPlayer
+    e.target.setAttribute("class",this.game.currentPlayer)
+  }
 
-  makeMove(square) {}
+  makeMove(square) {  
+    this.game.playMove(square)
+   if (this.game.isOver()){
+    alert("Game Over")
+   }
+  }
 
 }
 
